@@ -1,6 +1,7 @@
-package com.dy.userservice.mapper;
+package com.dy.permissionservice.mapper;
 
-import com.dy.userservice.entity.Users;
+
+import com.dy.permissionservice.entity.Users;
 import org.apache.ibatis.annotations.Mapper;
 
 /**

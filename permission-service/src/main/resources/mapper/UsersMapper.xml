@@ -2,9 +2,9 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.dy.userservice.mapper.UsersMapper">
+<mapper namespace="com.dy.permissionservice.mapper.UsersMapper">
 
-    <resultMap id="BaseResultMap" type="com.dy.userservice.entity.Users">
+    <resultMap id="BaseResultMap" type="com.dy.permissionservice.entity.Users">
             <id property="userId" column="user_id" jdbcType="BIGINT"/>
             <result property="username" column="username" jdbcType="VARCHAR"/>
             <result property="password" column="password" jdbcType="VARCHAR"/>
@@ -34,7 +34,7 @@
         delete from users
         where  user_id = #{userId,jdbcType=BIGINT} 
     </delete>
-    <insert id="insert" keyColumn="user_id" keyProperty="userId" parameterType="com.dy.userservice.entity.Users" useGeneratedKeys="true">
+    <insert id="insert" keyColumn="user_id" keyProperty="userId" parameterType="com.dy.permissionservice.entity.Users" useGeneratedKeys="true">
         insert into users
         ( user_id,username,password
         ,email,phone,gmt_create
@@ -43,7 +43,7 @@
         ,#{email,jdbcType=VARCHAR},#{phone,jdbcType=VARCHAR},#{gmtCreate,jdbcType=TIMESTAMP}
         )
     </insert>
-    <insert id="insertSelective" keyColumn="user_id" keyProperty="userId" parameterType="com.dy.userservice.entity.Users" useGeneratedKeys="true">
+    <insert id="insertSelective" keyColumn="user_id" keyProperty="userId" parameterType="com.dy.permissionservice.entity.Users" useGeneratedKeys="true">
         insert into users
         <trim prefix="(" suffix=")" suffixOverrides=",">
                 <if test="userId != null">user_id,</if>
@@ -62,7 +62,7 @@
                 <if test="gmtCreate != null">#{gmtCreate,jdbcType=TIMESTAMP},</if>
         </trim>
     </insert>
-    <update id="updateByPrimaryKeySelective" parameterType="com.dy.userservice.entity.Users">
+    <update id="updateByPrimaryKeySelective" parameterType="com.dy.permissionservice.entity.Users">
         update users
         <set>
                 <if test="username != null">
@@ -83,7 +83,7 @@
         </set>
         where   user_id = #{userId,jdbcType=BIGINT} 
     </update>
-    <update id="updateByPrimaryKey" parameterType="com.dy.userservice.entity.Users">
+    <update id="updateByPrimaryKey" parameterType="com.dy.permissionservice.entity.Users">
         update users
         set 
             username =  #{username,jdbcType=VARCHAR},
